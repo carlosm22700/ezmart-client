@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import axios from 'axios';
+import AuthPage from './pages/AuthPage/AuthPage';
 
 function App() {
   const [data, setData] = useState(null);
@@ -30,12 +31,15 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <button onClick={fetchData}>Fetch Data</button>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
-    </div>
+    <>
+      <div className="App">
+        <button onClick={fetchData}>Fetch Data</button>
+        {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+        {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+      </div>
+      <AuthPage />
+    </>
   );
 }
 
